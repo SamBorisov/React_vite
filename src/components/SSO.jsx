@@ -16,7 +16,7 @@ export default function SSO() {
     return (
         <div>
 
-            <h2>Hello{authTokenRequest}</h2>
+            <h2>Hello</h2>
             
         </div>)
 }
