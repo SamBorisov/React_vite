@@ -1,17 +1,18 @@
 import React from 'react'
-
-
+import * as microsoftTeams from "@microsoft/teams-js"
 // SSO --------------------------------------------------
 
 export default function SSO() {
 
 
     microsoftTeams.initialize();
-    var authTokenRequest = {
-     successCallback: function(result) { console.log("Success: " + result); },
-     failureCallback: function(error) { console.log("Error getting token: " + error); }
+    let authTokenRequestOptions = {
+        successCallback: (result) => { this.ssoLoginSuccess(result) },
+        failureCallback: (error) => { this.ssoLoginFailure(error) }
     };
-        microsoftTeams.authentication.getAuthToken(authTokenRequest);
+
+    microsoftTeams.authentication.getAuthToken(authTokenRequestOptions);
+
 
     return (
         <div>
@@ -19,4 +20,5 @@ export default function SSO() {
             <h2>Hello</h2>
             
         </div>)
+
 }
