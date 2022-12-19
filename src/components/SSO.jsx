@@ -5,6 +5,7 @@ import * as microsoftTeams from "@microsoft/teams-js"
 export default function SSO() {
 
 
+    () => {
     microsoftTeams.initialize();
     let authTokenRequestOptions = {
         successCallback: (result) => { this.ssoLoginSuccess(result) },
@@ -12,6 +13,9 @@ export default function SSO() {
     };
 
     microsoftTeams.authentication.getAuthToken(authTokenRequestOptions);
+    }
+
+
 
 
     return (
@@ -19,6 +23,7 @@ export default function SSO() {
 
             <h2>Hello</h2>
             
-        </div>)
+        </div>
+        )
 
 }
